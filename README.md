@@ -1,4 +1,30 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# To-Do List App
+
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app). This implementation provides a basic to-do list app with the following features:
+
+## Features
+
+### Task Management
+
+1. Users can create new tasks with a title, notes, due date, priority, and list category.
+2. Tasks can be edited inline.
+3. Tasks can be deleted.
+
+### Lists and Organization
+
+1. Tasks are grouped into predefined lists (Work, Personal, Groceries).
+2. A tab interface allows users to view all tasks or filter by list.
+
+### User Interface
+
+1. The design is clean and minimalist, inspired by Apple's aesthetic.
+2. It uses a card-based layout for tasks and a tab interface for list filtering.
+
+### Task Properties
+
+1. Each task has a title, notes, due date, priority, and list category.
+2. Due dates can be set using a calendar popup.
+
 
 ## Getting Started
 
