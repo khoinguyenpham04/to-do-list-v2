@@ -3,11 +3,9 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Calendar } from "@/components/ui/calendar"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { CalendarIcon, Trash2, Plus } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { format } from "date-fns"
@@ -68,7 +66,7 @@ export function TodoApp() {
       
     >
       <div className="flex justify-between items-center mb-4">
-        <h1 className="text-5xl font-bold">Noah's Todo List</h1>
+        <h1 className="text-5xl font-bold">Noah&apos;s Todo List</h1>
         <ThemeToggle />
       </div>
       <div className="mb-4">
