@@ -11,6 +11,8 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { CalendarIcon, Trash2, Plus } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { format } from "date-fns"
+import { ThemeToggle } from "@/components/themetoggle"
+import { CustomDropdown } from '@/components/customdropdown';
 
 type Task = {
   id: number
@@ -62,16 +64,13 @@ export function TodoApp() {
   }
 
   return (
-    <div className="container mx-auto p-4 max-w-4xl" 
-      style={{
-        backgroundImage: 'url(/background.jpg)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        minHeight: '100vh',
-      }}
+    <div className="container mx-auto p-4 max-w-4xl min-h-screen" 
+      
     >
-      <h1 className="text-5xl font-bold mb-4">Noah's Todo List</h1>
+      <div className="flex justify-between items-center mb-4">
+        <h1 className="text-5xl font-bold">Noah's Todo List</h1>
+        <ThemeToggle />
+      </div>
       <div className="mb-4">
         <Input
           type="text"
@@ -104,24 +103,20 @@ export function TodoApp() {
               />
             </PopoverContent>
           </Popover>
-          <select
-            value={newTask.priority}
-            onChange={(e) => setNewTask({ ...newTask, priority: e.target.value as Task['priority'] })}
-            className="border rounded p-2"
-          >
-            <option value="low">Low ❕</option>
-            <option value="medium">Medium ❗️❗️</option>
-            <option value="high">High ❗️❗️❗️</option>
-          </select>
-          <select
-            value={newTask.category}
-            onChange={(e) => setNewTask({ ...newTask, category: e.target.value })}
-            className="border rounded p-2"
-          >
-            {categories.map((category) => (
-              <option key={category} value={category}>{category}</option>
-            ))}
-          </select>
+          <CustomDropdown
+            value={newTask.priority || 'medium'}
+            options={[
+              { value: 'low', label: 'Low ❕' },
+              { value: 'medium', label: 'Medium ❗️❗️' },
+              { value: 'high', label: 'High ❗️❗️❗️' },
+            ]}
+            onChange={(value) => setNewTask({ ...newTask, priority: value as Task['priority'] })}
+          />
+          <CustomDropdown
+            value={newTask.category || "Personal"}
+            options={categories.map(category => ({ value: category, label: category }))}
+            onChange={(value) => setNewTask({ ...newTask, category: value })}
+          />
         </div>
         <Button onClick={addTask}>Add Task</Button>
       </div>
@@ -183,24 +178,20 @@ export function TodoApp() {
                         />
                       </PopoverContent>
                     </Popover>
-                    <select
-                      value={task.priority}
-                      onChange={(e) => updateTask(task.id, { priority: e.target.value as Task['priority'] })}
-                      className="border rounded p-2"
-                    >
-                      <option value="low">Low ❕</option>
-                      <option value="medium">Medium ❗️❗️</option>
-                      <option value="high">High ❗️❗️❗️</option>
-                    </select>
-                    <select
-                      value={task.category}
-                      onChange={(e) => updateTask(task.id, { category: e.target.value })}
-                      className="border rounded p-2"
-                    >
-                      {categories.map((category) => (
-                        <option key={category} value={category}>{category}</option>
-                      ))}
-                    </select>
+                    <CustomDropdown
+                      value={newTask.priority || 'medium'}
+                      options={[
+                        { value: 'low', label: 'Low ❕' },
+                        { value: 'medium', label: 'Medium ❗️❗️' },
+                        { value: 'high', label: 'High ❗️❗️❗️' },
+                      ]}
+                      onChange={(value) => setNewTask({ ...newTask, priority: value as Task['priority'] })}
+                    />
+                    <CustomDropdown
+                      value={newTask.category || "Personal"}
+                      options={categories.map(category => ({ value: category, label: category }))}
+                      onChange={(value) => setNewTask({ ...newTask, category: value })}
+                    />
                   </div>
                 </div>
               ))}
