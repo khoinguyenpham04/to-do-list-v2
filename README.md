@@ -17,7 +17,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ### User Interface
 
-1. The design is clean and minimalist, inspired by Apple's aesthetic.
+1. The design is clean and minimalist, with components from Shadcn.
 2. It uses a card-based layout for tasks and a tab interface for list filtering.
 
 ### Task Properties
