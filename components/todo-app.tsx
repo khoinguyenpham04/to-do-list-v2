@@ -12,6 +12,7 @@ import { CalendarIcon, Trash2, Moon, Sun } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { format } from "date-fns"
 import { motion, AnimatePresence } from "framer-motion"
+import Logo from "./logo"
 
 type Task = {
   id: number
@@ -76,7 +77,7 @@ export function TodoApp() {
     <div className={`min-h-screen bg-gradient-to-br ${isDarkMode ? 'from-slate-900 to-slate-800' : 'from-cyan-50 to-violet-50'} transition-colors duration-500`}>
       <div className="container mx-auto p-4 max-w-4xl">
         <div className="flex justify-between items-center mb-8">
-          <h1 className="text-5xl font-bold text-sky-950 dark:text-cyan-50">Todo List</h1>
+          <Logo />
           <Button
             variant="outline"
             size="icon"
